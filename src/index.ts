@@ -61,6 +61,7 @@ const buttonPush = new QPushButton();
 buttonPush.setText("Git Push");
 var cmdPush = require("node-cmd");
 var push = cmdPush.run(`git push`);
+console.log(push + "dada");
 
 const button = new QPushButton();
 button.setIcon(new QIcon(logo));
