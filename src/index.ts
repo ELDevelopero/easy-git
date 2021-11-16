@@ -47,22 +47,26 @@ browseButton.addEventListener("clicked", () => {
 
 const buttonGitAdd = new QPushButton();
 buttonGitAdd.setText("Git Add .");
-var cmdGitAdd = require("node-cmd");
-var add = cmdGitAdd.run(`git add .`);
-console.log(add);
-
+buttonGitAdd.addEventListener("clicked", () => {
+  var cmdGitAdd = require("node-cmd");
+  var add = cmdGitAdd.run(`git add .`);
+  console.log(add);
+});
 const buttonCommit = new QPushButton();
 buttonCommit.setText("Git Commit");
-var cmdCommit = require("node-cmd");
-var commit = cmdCommit.run(`git commit -m "test"`);
-console.log(commit);
+buttonCommit.addEventListener("clicked", () => {
+  var cmdCommit = require("node-cmd");
+  var commit = cmdCommit.run(`git commit -m "test 2"`);
+  console.log(commit);
+});
 
 const buttonPush = new QPushButton();
 buttonPush.setText("Git Push");
-var cmdPush = require("node-cmd");
-var push = cmdPush.run(`git push`);
-console.log(push + "dada");
-
+buttonPush.addEventListener("clicked", () => {
+  var cmdPush = require("node-cmd");
+  var push = cmdPush.run(`git push`);
+  console.log(push + "dada");
+});
 const button = new QPushButton();
 button.setIcon(new QIcon(logo));
 
