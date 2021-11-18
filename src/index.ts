@@ -59,7 +59,7 @@ buttonCommit.setText("Git Commit");
 buttonCommit.addEventListener("clicked", () => {
   var cmdCommit = require("node-cmd");
   var commit = cmdCommit.run(datas + `git commit -m "test 2"`);
-  console.log(commit);
+  console.log(commit, datas);
 });
 
 const buttonPush = new QPushButton();
