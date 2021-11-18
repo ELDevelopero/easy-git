@@ -4,14 +4,12 @@ import {
   QLabel,
   FlexLayout,
   QPushButton,
-  QIcon,
   FileMode,
-  QInputDialog,
   QLineEdit,
+  QPixmap,
 } from "@nodegui/nodegui";
 import { exec } from "child_process";
-import logo from "../assets/logox200.png";
-import logo2 from "../assets/RAM50.png";
+import logo from "../assets/gitLogo.png";
 
 const win = new QMainWindow();
 win.setWindowTitle("DMS Easy Git");
@@ -22,18 +20,25 @@ centralWidget.setObjectName("myroot");
 const rootLayout = new FlexLayout();
 centralWidget.setLayout(rootLayout);
 
+const labelImage = new QLabel();
+labelImage.setObjectName("imageLabel");
+const image = new QPixmap();
+image.load(logo);
+labelImage.setPixmap(image);
+
 const commitMessage = new QLineEdit();
-commitMessage.setText("commit messsage");
+commitMessage.setText("commit message");
+commitMessage.setInlineStyle("color:red");
 commitMessage.setObjectName("commitMessageText");
 
 const browseFolder = new QLabel();
 browseFolder.setObjectName("browselabel");
-browseFolder.setText("Hello");
 
 const { QFileDialog } = require("@nodegui/nodegui");
 
 const browseButton = new QPushButton();
-browseButton.setText("Browse Project Directory");
+browseButton.setObjectName("buttonsLabes");
+browseButton.setText("Browse");
 browseButton.addEventListener("clicked", () => {
   const fileDialog = new QFileDialog();
   fileDialog.setFileMode(FileMode.Directory);
@@ -60,6 +65,7 @@ browseButton.addEventListener("clicked", () => {
 
 const buttonGitAdd = new QPushButton();
 buttonGitAdd.setText("Git Add .");
+buttonGitAdd.setObjectName("buttonsLabes");
 buttonGitAdd.addEventListener("clicked", () => {
   exec("cd " + datas + "&&" + " git add .", (error, stdout, stderr) => {
     if (error) {
@@ -76,6 +82,7 @@ buttonGitAdd.addEventListener("clicked", () => {
 
 const buttonCommit = new QPushButton();
 buttonCommit.setText("Git Commit");
+buttonCommit.setObjectName("buttonsLabes");
 buttonCommit.addEventListener("clicked", () => {
   exec(
     "cd " + datas + "&&" + " git commit -m " + commitMessage.text(),
@@ -95,6 +102,7 @@ buttonCommit.addEventListener("clicked", () => {
 
 const buttonPush = new QPushButton();
 buttonPush.setText("Git Push");
+buttonPush.setObjectName("buttonsLabes");
 buttonPush.addEventListener("clicked", () => {
   exec("cd " + datas + "&&" + " git push", (error, stdout, stderr) => {
     if (error) {
@@ -108,36 +116,53 @@ buttonPush.addEventListener("clicked", () => {
     console.log(`stdout: ${stdout}`);
   });
 });
-const button = new QPushButton();
-button.setIcon(new QIcon(logo));
 
-const label2 = new QLabel();
-label2.setText("World");
-label2.setInlineStyle(`
-  color: red;
-`);
+const versionLabel = new QLabel();
+versionLabel.setInlineStyle(
+  "font-size:12; font-weight: bold; padding: 4; align-self:'center'; margin: 4;"
+);
+versionLabel.setText("Version: 1.0.0");
 
+rootLayout.addWidget(labelImage);
 rootLayout.addWidget(browseFolder);
 rootLayout.addWidget(browseButton);
 rootLayout.addWidget(buttonGitAdd);
 rootLayout.addWidget(commitMessage);
 rootLayout.addWidget(buttonCommit);
 rootLayout.addWidget(buttonPush);
-rootLayout.addWidget(label2);
+rootLayout.addWidget(versionLabel);
 win.setCentralWidget(centralWidget);
 win.setStyleSheet(
   `
     #myroot {
-      background-color: #009688;
+      background-color: #F6F5F2;
       height: '100%';
       align-items: 'center';
       justify-content: 'center';
+      
     }
-    #mylabel {
-      font-size: 16px;
-      font-weight: bold;
-      padding: 1;
-    }
+   
+    #imageLabel{
+      padding:4;
+  
+      }
+
+      #buttonsLabes{
+        padding:4;
+        width: 130px;
+        font-size: 22px;
+      }
+
+      #commitMessageText{
+        padding:4;
+        width:130px;
+        height:50 px;
+        color:blue;
+        align-items: "center";
+        font-size:14px;
+      }
+
+
   `
 );
 
