@@ -6,9 +6,12 @@ import {
   QPushButton,
   QIcon,
   FileMode,
+  QInputDialog,
+  QLineEdit,
 } from "@nodegui/nodegui";
 import { exec } from "child_process";
 import logo from "../assets/logox200.png";
+import logo2 from "../assets/RAM50.png";
 
 const win = new QMainWindow();
 win.setWindowTitle("DMS Easy Git");
@@ -18,6 +21,10 @@ const centralWidget = new QWidget();
 centralWidget.setObjectName("myroot");
 const rootLayout = new FlexLayout();
 centralWidget.setLayout(rootLayout);
+
+const commitMessage = new QLineEdit();
+commitMessage.setText("commit messsage");
+commitMessage.setObjectName("commitMessageText");
 
 const browseFolder = new QLabel();
 browseFolder.setObjectName("browselabel");
@@ -36,7 +43,7 @@ browseButton.addEventListener("clicked", () => {
   console.log(selectedFiles);
   datas = selectedFiles;
 
-  exec("cd " + selectedFiles + " git add .", (error, stdout, stderr) => {
+  exec("cd " + selectedFiles, (error, stdout, stderr) => {
     if (error) {
       console.log(`error: ${error.message}`);
       return;
@@ -46,23 +53,9 @@ browseButton.addEventListener("clicked", () => {
       return;
     }
     console.log(`stdout: ${stdout}`);
+    browseButton.setText("✔️");
+    browseButton.setInlineStyle("background-color:green");
   });
-
-  // var cmdCD = require("node-cmd");
-  // var check = cmdCD.run(`cd .. `);
-
-  // console.log("check"),
-  //   function (err, data, stderr) {
-  //     console.log(
-  //       "examples dir now contains the example file along with : ",
-  //       data
-  //     );
-  // };
-
-  // function (error, stdout, stderr) {
-  //   if (error) browseButton.setText(error);
-  //   console.log("stdout: " + stdout);
-  // }
 });
 
 const buttonGitAdd = new QPushButton();
@@ -79,16 +72,13 @@ buttonGitAdd.addEventListener("clicked", () => {
     }
     console.log(`stdout: ${stdout}`);
   });
-
-  // var cmdGitAdd = require("node-cmd");
-  // var add = cmdGitAdd.run(datas + `git add .`);
-  // console.log(add);
 });
+
 const buttonCommit = new QPushButton();
 buttonCommit.setText("Git Commit");
 buttonCommit.addEventListener("clicked", () => {
   exec(
-    "cd " + datas + "&&" + ` git commit -m "test 2"`,
+    "cd " + datas + "&&" + " git commit -m " + commitMessage.text(),
     (error, stdout, stderr) => {
       if (error) {
         console.log(`error: ${error.message}`);
@@ -101,9 +91,6 @@ buttonCommit.addEventListener("clicked", () => {
       console.log(`stdout: ${stdout}`);
     }
   );
-  // var cmdCommit = require("node-cmd");
-  // var commit = cmdCommit.run(datas + `git commit -m "test 2"`);
-  // console.log(commit, datas + "nunu");
 });
 
 const buttonPush = new QPushButton();
@@ -120,9 +107,6 @@ buttonPush.addEventListener("clicked", () => {
     }
     console.log(`stdout: ${stdout}`);
   });
-  // var cmdPush = require("node-cmd");
-  // var push = cmdPush.run(datas + `git push`);
-  // console.log(push + "dada");
 });
 const button = new QPushButton();
 button.setIcon(new QIcon(logo));
@@ -136,6 +120,7 @@ label2.setInlineStyle(`
 rootLayout.addWidget(browseFolder);
 rootLayout.addWidget(browseButton);
 rootLayout.addWidget(buttonGitAdd);
+rootLayout.addWidget(commitMessage);
 rootLayout.addWidget(buttonCommit);
 rootLayout.addWidget(buttonPush);
 rootLayout.addWidget(label2);
@@ -155,6 +140,7 @@ win.setStyleSheet(
     }
   `
 );
+
 win.show();
 
 (global as any).win = win;
