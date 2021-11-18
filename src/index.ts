@@ -12,6 +12,7 @@ import logo from "../assets/logox200.png";
 
 const win = new QMainWindow();
 win.setWindowTitle("DMS Easy Git");
+var datas;
 
 const centralWidget = new QWidget();
 centralWidget.setObjectName("myroot");
@@ -33,6 +34,7 @@ browseButton.addEventListener("clicked", () => {
   const selectedFiles = fileDialog.selectedFiles();
   fileDialog.exec();
   console.log(selectedFiles);
+  datas = selectedFiles;
 
   var cmdCD = require("node-cmd");
   var check = cmdCD.run(`cd ` + selectedFiles);
@@ -49,14 +51,14 @@ const buttonGitAdd = new QPushButton();
 buttonGitAdd.setText("Git Add .");
 buttonGitAdd.addEventListener("clicked", () => {
   var cmdGitAdd = require("node-cmd");
-  var add = cmdGitAdd.run(`git add .`);
+  var add = cmdGitAdd.run(datas + `git add .`);
   console.log(add);
 });
 const buttonCommit = new QPushButton();
 buttonCommit.setText("Git Commit");
 buttonCommit.addEventListener("clicked", () => {
   var cmdCommit = require("node-cmd");
-  var commit = cmdCommit.run(`git commit -m "test 2"`);
+  var commit = cmdCommit.run(datas + `git commit -m "test 2"`);
   console.log(commit);
 });
 
@@ -64,7 +66,7 @@ const buttonPush = new QPushButton();
 buttonPush.setText("Git Push");
 buttonPush.addEventListener("clicked", () => {
   var cmdPush = require("node-cmd");
-  var push = cmdPush.run(`git push`);
+  var push = cmdPush.run(datas + `git push`);
   console.log(push + "dada");
 });
 const button = new QPushButton();
