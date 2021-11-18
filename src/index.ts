@@ -30,16 +30,34 @@ browseButton.setText("Browse Project Directory");
 browseButton.addEventListener("clicked", () => {
   const fileDialog = new QFileDialog();
   fileDialog.setFileMode(FileMode.Directory);
-
-  const selectedFiles = fileDialog.selectedFiles();
   fileDialog.exec();
+  const selectedFiles = fileDialog.selectedFiles();
+
   console.log(selectedFiles);
   datas = selectedFiles;
 
-  var cmdCD = require("node-cmd");
-  var check = cmdCD.run(`cd ` + selectedFiles);
+  exec("cd " + selectedFiles + " git add .", (error, stdout, stderr) => {
+    if (error) {
+      console.log(`error: ${error.message}`);
+      return;
+    }
+    if (stderr) {
+      console.log(`stderr: ${stderr}`);
+      return;
+    }
+    console.log(`stdout: ${stdout}`);
+  });
 
-  console.log(check);
+  // var cmdCD = require("node-cmd");
+  // var check = cmdCD.run(`cd .. `);
+
+  // console.log("check"),
+  //   function (err, data, stderr) {
+  //     console.log(
+  //       "examples dir now contains the example file along with : ",
+  //       data
+  //     );
+  // };
 
   // function (error, stdout, stderr) {
   //   if (error) browseButton.setText(error);
@@ -50,24 +68,61 @@ browseButton.addEventListener("clicked", () => {
 const buttonGitAdd = new QPushButton();
 buttonGitAdd.setText("Git Add .");
 buttonGitAdd.addEventListener("clicked", () => {
-  var cmdGitAdd = require("node-cmd");
-  var add = cmdGitAdd.run(datas + `git add .`);
-  console.log(add);
+  exec("cd " + datas + "&&" + " git add .", (error, stdout, stderr) => {
+    if (error) {
+      console.log(`error: ${error.message}`);
+      return;
+    }
+    if (stderr) {
+      console.log(`stderr: ${stderr}`);
+      return;
+    }
+    console.log(`stdout: ${stdout}`);
+  });
+
+  // var cmdGitAdd = require("node-cmd");
+  // var add = cmdGitAdd.run(datas + `git add .`);
+  // console.log(add);
 });
 const buttonCommit = new QPushButton();
 buttonCommit.setText("Git Commit");
 buttonCommit.addEventListener("clicked", () => {
-  var cmdCommit = require("node-cmd");
-  var commit = cmdCommit.run(datas + `git commit -m "test 2"`);
-  console.log(commit, datas);
+  exec(
+    "cd " + datas + "&&" + ` git commit -m "test 2"`,
+    (error, stdout, stderr) => {
+      if (error) {
+        console.log(`error: ${error.message}`);
+        return;
+      }
+      if (stderr) {
+        console.log(`stderr: ${stderr}`);
+        return;
+      }
+      console.log(`stdout: ${stdout}`);
+    }
+  );
+  // var cmdCommit = require("node-cmd");
+  // var commit = cmdCommit.run(datas + `git commit -m "test 2"`);
+  // console.log(commit, datas + "nunu");
 });
 
 const buttonPush = new QPushButton();
 buttonPush.setText("Git Push");
 buttonPush.addEventListener("clicked", () => {
-  var cmdPush = require("node-cmd");
-  var push = cmdPush.run(datas + `git push`);
-  console.log(push + "dada");
+  exec("cd " + datas + "&&" + " git push", (error, stdout, stderr) => {
+    if (error) {
+      console.log(`error: ${error.message}`);
+      return;
+    }
+    if (stderr) {
+      console.log(`stderr: ${stderr}`);
+      return;
+    }
+    console.log(`stdout: ${stdout}`);
+  });
+  // var cmdPush = require("node-cmd");
+  // var push = cmdPush.run(datas + `git push`);
+  // console.log(push + "dada");
 });
 const button = new QPushButton();
 button.setIcon(new QIcon(logo));
