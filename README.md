@@ -1,6 +1,4 @@
-# nodegui-starter
-
-**Clone and run for a quick way to see NodeGui in action.**
+# DMS-EASY-GIT
 
 ## To Use
 
@@ -11,21 +9,15 @@ Make sure you have met the requirements listed here: https://docs.nodegui.org/do
 From your command line:
 
 ```bash
-# Clone this repository
-git clone https://github.com/nodegui/nodegui-starter
+# Clone the repository
+git clone https://github.com/ELDevelopero/easy-git
 # Go into the repository
-cd nodegui-starter
+cd easy-git
 # Install dependencies
 npm install
 # Run the app
 npm start
 ```
-
-## Resources for Learning NodeGui
-
-- [docs.nodegui.org](https://nodegui.github.io/nodegui) - all of NodeGui and React Desktop's documentation
-
-## Packaging app as a distributable
 
 In order to distribute your finished app, you can use [@nodegui/packer](https://github.com/nodegui/packer)
 
@@ -54,6 +46,14 @@ npx nodegui-packer --pack ./dist
 This will build the distributable using @nodegui/packer based on your template. The output of the command is found under the build directory. You should gitignore the build directory.
 
 More details about packer can be found here: https://github.com/nodegui/packer
+
+## Notes
+
+Please note, that the RAM information will be different from the one shown in system monitor for instance. It is because this monitor displays the total free and used memory(together with cache), while others, may display the available memory, ignoring the cache.
+
+## Credits
+
+"Icons made by Pixel perfect, Freepik, surang, Nhor Phai from www.flaticon.com"
 
 ## License
 
