@@ -7,14 +7,15 @@ import {
   FileMode,
   QLineEdit,
   QPixmap,
+  QCheckBox,
 } from "@nodegui/nodegui";
 import { exec } from "child_process";
 import logo from "../assets/gitLogo.png";
-import { target } from "../webpack.config";
 
 const win = new QMainWindow();
 win.setWindowTitle("DMS Easy Git");
 var datas;
+var skin = true;
 
 const centralWidget = new QWidget();
 centralWidget.setObjectName("myroot");
@@ -145,6 +146,19 @@ buttonPush.addEventListener("clicked", () => {
   buttonPush.setObjectName("standardLabel");
 });
 
+const buttonSkin = new QCheckBox();
+var count = 1;
+buttonSkin.setText("Dark");
+buttonSkin.addEventListener("clicked", () => {
+  count = count + 1;
+  if (count % 2 != 0) {
+    centralWidget.setObjectName("myroot");
+    buttonSkin.setText("Dark");
+  } else {
+    centralWidget.setObjectName("myrootDark");
+  }
+});
+
 const versionLabel = new QLabel();
 versionLabel.setInlineStyle(
   "font-size:12; font-weight: bold; padding: 4; align-self:'center'; margin: 4;"
@@ -152,6 +166,7 @@ versionLabel.setInlineStyle(
 versionLabel.setText("Version: 1.0.0");
 
 rootLayout.addWidget(labelImage);
+rootLayout.addWidget(buttonSkin);
 rootLayout.addWidget(browseFolder);
 rootLayout.addWidget(browseButton);
 rootLayout.addWidget(buttonGitAdd);
@@ -168,6 +183,13 @@ win.setStyleSheet(
       align-items: 'center';
       justify-content: 'center';
       
+    }
+
+    #myrootDark{
+      background-color: grey;
+      height: '100%';
+      align-items: 'center';
+      justify-content: 'center';
     }
    
     #imageLabel{
