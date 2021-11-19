@@ -47,9 +47,10 @@ This will build the distributable using @nodegui/packer based on your template. 
 
 More details about packer can be found here: https://github.com/nodegui/packer
 
-## Notes
+## Usage
 
-Please note, that the RAM information will be different from the one shown in system monitor for instance. It is because this monitor displays the total free and used memory(together with cache), while others, may display the available memory, ignoring the cache.
+This is not a full replacement for all git commands. For the app to work, your project directory must have the .git folder created and connected with GitHub, Gitlab, etc. This application is intended to replace the CLI git add ., git commit and git push commands with GUI interface.
+It comes with absolutely no warranty.
 
 ## License
 
