@@ -51,10 +51,6 @@ More details about packer can be found here: https://github.com/nodegui/packer
 
 Please note, that the RAM information will be different from the one shown in system monitor for instance. It is because this monitor displays the total free and used memory(together with cache), while others, may display the available memory, ignoring the cache.
 
-## Credits
-
-"Icons made by Pixel perfect, Freepik, surang, Nhor Phai from www.flaticon.com"
-
 ## License
 
 MIT
