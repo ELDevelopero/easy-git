@@ -10,6 +10,7 @@ import {
 } from "@nodegui/nodegui";
 import { exec } from "child_process";
 import logo from "../assets/gitLogo.png";
+import { target } from "../webpack.config";
 
 const win = new QMainWindow();
 win.setWindowTitle("DMS Easy Git");
@@ -39,7 +40,7 @@ const { QFileDialog } = require("@nodegui/nodegui");
 const browseButton = new QPushButton();
 browseButton.setObjectName("buttonsLabes");
 browseButton.setText("Browse");
-browseButton.addEventListener("clicked", () => {
+browseButton.addEventListener("clicked", (e) => {
   const fileDialog = new QFileDialog();
   fileDialog.setFileMode(FileMode.Directory);
   fileDialog.exec();
@@ -51,32 +52,42 @@ browseButton.addEventListener("clicked", () => {
   exec("cd " + selectedFiles, (error, stdout, stderr) => {
     if (error) {
       console.log(`error: ${error.message}`);
+      browseButton.setText("Browse ❌");
+      browseButton.setObjectName("errorLabel");
       return;
     }
     if (stderr) {
       console.log(`stderr: ${stderr}`);
+      browseButton.setText("Browse ❌");
+      browseButton.setObjectName("errorLabel");
       return;
     }
     console.log(`stdout: ${stdout}`);
-    browseButton.setText("✔️");
-    browseButton.setInlineStyle("background-color:green");
+    browseButton.setText("Browse ✔️");
+    browseButton.setObjectName("passLabel");
   });
 });
 
 const buttonGitAdd = new QPushButton();
 buttonGitAdd.setText("Git Add .");
 buttonGitAdd.setObjectName("buttonsLabes");
-buttonGitAdd.addEventListener("clicked", () => {
+buttonGitAdd.addEventListener("clicked", (e) => {
   exec("cd " + datas + "&&" + " git add .", (error, stdout, stderr) => {
     if (error) {
       console.log(`error: ${error.message}`);
+      buttonGitAdd.setText("Git Add ❌");
+      buttonGitAdd.setObjectName("errorLabel");
       return;
     }
     if (stderr) {
       console.log(`stderr: ${stderr}`);
+      buttonGitAdd.setText("Git Add ❌");
+      buttonGitAdd.setObjectName("errorLabel");
       return;
     }
     console.log(`stdout: ${stdout}`);
+    buttonGitAdd.setText("Git Add . ✔️");
+    buttonGitAdd.setObjectName("passLabel");
   });
 });
 
@@ -89,13 +100,20 @@ buttonCommit.addEventListener("clicked", () => {
     (error, stdout, stderr) => {
       if (error) {
         console.log(`error: ${error.message}`);
+        buttonCommit.setText("Commit ❌");
+        buttonCommit.setObjectName("errorLabel");
         return;
       }
       if (stderr) {
         console.log(`stderr: ${stderr}`);
+        buttonCommit.setText("Commit ❌");
+        buttonCommit.setObjectName("errorLabel");
+
         return;
       }
       console.log(`stdout: ${stdout}`);
+      buttonCommit.setText("Commit ✔️");
+      buttonCommit.setObjectName("passLabel");
     }
   );
 });
@@ -107,6 +125,8 @@ buttonPush.addEventListener("clicked", () => {
   exec("cd " + datas + "&&" + " git push", (error, stdout, stderr) => {
     if (error) {
       console.log(`error: ${error.message}`);
+      buttonPush.setText("Git Push ❌");
+      buttonPush.setObjectName("errorLabel");
       return;
     }
     if (stderr) {
@@ -114,7 +134,15 @@ buttonPush.addEventListener("clicked", () => {
       return;
     }
     console.log(`stdout: ${stdout}`);
+    buttonPush.setText("Git Push ✔️");
+    buttonPush.setObjectName("passLabel");
   });
+  buttonGitAdd.setText("Git Add .");
+  buttonGitAdd.setObjectName("standardLabel");
+  buttonCommit.setText("Git Commit");
+  buttonCommit.setObjectName("standardLabel");
+  buttonPush.setText("Git Push");
+  buttonPush.setObjectName("standardLabel");
 });
 
 const versionLabel = new QLabel();
@@ -161,6 +189,29 @@ win.setStyleSheet(
         align-items: "center";
         font-size:14px;
       }
+
+      #errorLabel{
+        background-color: "red";
+        padding:4;
+        width: 130px;
+        font-size: 22px;
+      }
+
+      #passLabel{
+      background-color: "green";
+      padding:4;
+      width: 130px;
+      font-size: 22px;
+      }
+
+      #standardLabel{
+      background-color: #F6F5F2;
+      padding:4;
+      width: 130px;
+      font-size: 22px;
+      }
+
+
 
 
   `
