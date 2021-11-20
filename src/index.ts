@@ -149,6 +149,7 @@ buttonPush.addEventListener("clicked", () => {
 const buttonSkin = new QCheckBox();
 var count = 1;
 buttonSkin.setText("Dark");
+buttonSkin.setInlineStyle("justify-content: flex-start;");
 buttonSkin.addEventListener("clicked", () => {
   count = count + 1;
   if (count % 2 != 0) {
@@ -161,7 +162,7 @@ buttonSkin.addEventListener("clicked", () => {
 
 const versionLabel = new QLabel();
 versionLabel.setInlineStyle(
-  "font-size:12; font-weight: bold; padding: 4; align-self:'center'; margin: 4;"
+  "font-size:12; font-weight: bold; padding: 4; margin: 4;"
 );
 versionLabel.setText("Version: 1.0.0");
 
@@ -199,8 +200,8 @@ win.setStyleSheet(
 
       #buttonsLabes{
         padding:4;
-        width: 130px;
-        font-size: 22px;
+        width: 132px;
+        font-size: 20px;
       }
 
       #commitMessageText{
