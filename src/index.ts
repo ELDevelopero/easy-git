@@ -151,7 +151,7 @@ var count = 1;
 buttonSkin.setText("Dark");
 buttonSkin.setInlineStyle("justify-content: flex-start;");
 buttonSkin.addEventListener("clicked", () => {
-  count = count + 1;
+  count += 1;
   if (count % 2 != 0) {
     centralWidget.setObjectName("myroot");
     buttonSkin.setText("Dark");
