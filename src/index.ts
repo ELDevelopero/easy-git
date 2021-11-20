@@ -144,6 +144,7 @@ buttonPush.addEventListener("clicked", () => {
   buttonCommit.setObjectName("standardLabel");
   buttonPush.setText("Git Push");
   buttonPush.setObjectName("standardLabel");
+  commitMessage.setObjectName("commitMessageText");
 });
 
 const buttonSkin = new QCheckBox();
