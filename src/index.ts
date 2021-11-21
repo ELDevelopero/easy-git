@@ -138,13 +138,22 @@ buttonPush.addEventListener("clicked", () => {
     buttonPush.setText("Git Push ✔️");
     buttonPush.setObjectName("passLabel");
   });
-  buttonGitAdd.setText("Git Add .");
-  buttonGitAdd.setObjectName("standardLabel");
-  buttonCommit.setText("Git Commit");
-  buttonCommit.setObjectName("standardLabel");
-  buttonPush.setText("Git Push");
-  buttonPush.setObjectName("standardLabel");
-  commitMessage.setObjectName("commitMessageText");
+  if (count % 2 != 0) {
+    buttonGitAdd.setText("Git Add .");
+    buttonGitAdd.setObjectName("standardLabel");
+    buttonCommit.setText("Git Commit");
+    buttonCommit.setObjectName("standardLabel");
+    buttonPush.setText("Git Push");
+    buttonPush.setObjectName("standardLabel");
+    commitMessage.setObjectName("commitMessageText");
+  } else {
+    centralWidget.setObjectName("myrootDark");
+    buttonCommit.setObjectName("darkLabel");
+    buttonPush.setObjectName("darkLabel");
+    buttonGitAdd.setObjectName("darkLabel");
+    browseButton.setObjectName("darkLabel");
+    commitMessage.setObjectName("commitMessageTextDark");
+  }
 });
 
 const buttonSkin = new QCheckBox();
