@@ -211,13 +211,13 @@ win.setStyleSheet(
 
       #buttonsLabes{
         padding:4;
-        width: 132px;
+        width: 135px;
         font-size: 20px;
       }
 
       #commitMessageText{
         padding:4;
-        width:130px;
+        width:135px;
         height:50 px;
         color:blue;
         align-items: "center";
@@ -226,7 +226,7 @@ win.setStyleSheet(
 
       #commitMessageTextDark{
         padding:4;
-        width:130px;
+        width:135px;
         height:50 px;
         color:white;
         align-items: "center";
@@ -237,28 +237,28 @@ win.setStyleSheet(
       #errorLabel{
         background-color: "red";
         padding:4;
-        width: 130px;
+        width: 135px;
         font-size: 22px;
       }
 
       #passLabel{
       background-color: "green";
       padding:4;
-      width: 130px;
+      width: 135px;
       font-size: 22px;
       }
 
       #standardLabel{
       background-color: #F6F5F2;
       padding:4;
-      width: 130px;
+      width: 135px;
       font-size: 22px;
       }
 
       #darkLabel{
         background-color: #3C415C;
         padding:4;
-        width: 130px;
+        width: 135px;
         font-size: 22px;
         }
 
