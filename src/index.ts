@@ -34,7 +34,7 @@ commitMessage.setText("commit message");
 commitMessage.setInlineStyle("color:red");
 commitMessage.setObjectName("commitMessageText");
 
-const infoBox = new QLineEdit();
+const infoBox = new QLabel();
 var infoData = "";
 infoBox.setText(infoData);
 
@@ -138,7 +138,6 @@ buttonPush.addEventListener("clicked", () => {
     if (stderr) {
       console.log(`stderr: ${stderr}`);
       infoData = stderr;
-      console.log(infoData);
       return;
     }
     console.log(`stdout: ${stdout}`);
