@@ -174,7 +174,9 @@ buttonSkin.addEventListener("clicked", () => {
     browseButton.setObjectName("standardLabel");
     commitMessage.setObjectName("commitMessageText");
     buttonSkin.setInlineStyle("color:black");
-    versionLabel.setInlineStyle("color:black");
+    versionLabel.setInlineStyle(
+      "font-size:12; font-weight: bold; padding: 4; margin: 4; color:black"
+    );
   } else {
     centralWidget.setObjectName("myrootDark");
     buttonCommit.setObjectName("darkLabel");
@@ -182,8 +184,10 @@ buttonSkin.addEventListener("clicked", () => {
     buttonGitAdd.setObjectName("darkLabel");
     browseButton.setObjectName("darkLabel");
     commitMessage.setObjectName("commitMessageTextDark");
-    buttonSkin.setInlineStyle("color: white");
-    versionLabel.setInlineStyle("color:white");
+    buttonSkin.setInlineStyle("color: grey");
+    versionLabel.setInlineStyle(
+      "font-size:12; font-weight: bold; padding: 4; margin: 4; color:white"
+    );
   }
 });
 
