@@ -247,28 +247,28 @@ win.setStyleSheet(
         background-color: "red";
         padding:4;
         width: 135px;
-        font-size: 22px;
+        font-size: 20px;
       }
 
       #passLabel{
       background-color: "green";
       padding:4;
       width: 135px;
-      font-size: 22px;
+      font-size: 20px;
       }
 
       #standardLabel{
       background-color: #F6F5F2;
       padding:4;
       width: 135px;
-      font-size: 22px;
+      font-size: 20px;
       }
 
       #darkLabel{
         background-color: #3C415C;
         padding:4;
         width: 135px;
-        font-size: 22px;
+        font-size: 20px;
         }
 
 
