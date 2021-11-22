@@ -137,13 +137,13 @@ buttonPush.addEventListener("clicked", () => {
     if (stderr) {
       console.log(`stderr: ${stderr}`);
       dataInfo = stderr;
+      dataInfor.setText(stderr);
 
       return;
     }
     console.log(`stdout: ${stdout}`);
     buttonPush.setText("Git Push ✔️");
     buttonPush.setObjectName("passLabel");
-    dataInfor.setText(dataInfo);
   });
   if (count % 2 != 0) {
     buttonGitAdd.setText("Git Add .");
