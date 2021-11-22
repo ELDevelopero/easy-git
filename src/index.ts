@@ -188,7 +188,7 @@ const versionLabel = new QLabel();
 versionLabel.setInlineStyle(
   "font-size:12; font-weight: bold; padding: 4; margin: 4;"
 );
-versionLabel.setText("Version: 1.0.0");
+versionLabel.setText("Version: 1.0.1");
 
 rootLayout.addWidget(labelImage);
 rootLayout.addWidget(buttonSkin);
