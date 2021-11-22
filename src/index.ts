@@ -9,6 +9,7 @@ import {
   QPixmap,
   QCheckBox,
   QMessageBox,
+  QDialog,
 } from "@nodegui/nodegui";
 import { exec } from "child_process";
 import logo from "../assets/gitLogo.png";
@@ -22,6 +23,10 @@ const centralWidget = new QWidget();
 centralWidget.setObjectName("myroot");
 const rootLayout = new FlexLayout();
 centralWidget.setLayout(rootLayout);
+
+var dataInfor = new QLineEdit();
+var dataInfo;
+dataInfor.setText(dataInfo);
 
 const labelImage = new QLabel();
 labelImage.setObjectName("imageLabel");
@@ -133,9 +138,8 @@ buttonPush.addEventListener("clicked", () => {
     }
     if (stderr) {
       console.log(`stderr: ${stderr}`);
-      const infoBox = new QMessageBox();
-      infoBox.setText(stderr);
-      infoBox.exec();
+
+      dataInfo.setText(stderr);
 
       return;
     }
@@ -210,6 +214,7 @@ rootLayout.addWidget(buttonGitAdd);
 rootLayout.addWidget(commitMessage);
 rootLayout.addWidget(buttonCommit);
 rootLayout.addWidget(buttonPush);
+rootLayout.addWidget(dataInfor);
 rootLayout.addWidget(versionLabel);
 win.setCentralWidget(centralWidget);
 win.setStyleSheet(
