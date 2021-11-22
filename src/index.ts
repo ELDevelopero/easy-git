@@ -9,9 +9,6 @@ import {
   QPixmap,
   QCheckBox,
   QMessageBox,
-  QTextBrowser,
-  QTextEdit,
-  QDialog,
 } from "@nodegui/nodegui";
 import { exec } from "child_process";
 import logo from "../assets/gitLogo.png";
@@ -36,11 +33,6 @@ const commitMessage = new QLineEdit();
 commitMessage.setText("commit message");
 commitMessage.setInlineStyle("color:red");
 commitMessage.setObjectName("commitMessageText");
-
-const infoBox = new QMessageBox();
-
-var infoData = "";
-infoBox.setText(infoData);
 
 const browseFolder = new QLabel();
 browseFolder.setObjectName("browselabel");
@@ -141,8 +133,10 @@ buttonPush.addEventListener("clicked", () => {
     }
     if (stderr) {
       console.log(`stderr: ${stderr}`);
-      infoData = stderr;
+      const infoBox = new QMessageBox();
+      infoBox.setText(stderr);
       infoBox.exec();
+
       return;
     }
     console.log(`stdout: ${stdout}`);
@@ -216,7 +210,6 @@ rootLayout.addWidget(buttonGitAdd);
 rootLayout.addWidget(commitMessage);
 rootLayout.addWidget(buttonCommit);
 rootLayout.addWidget(buttonPush);
-rootLayout.addWidget(infoBox);
 rootLayout.addWidget(versionLabel);
 win.setCentralWidget(centralWidget);
 win.setStyleSheet(
