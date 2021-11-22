@@ -24,9 +24,7 @@ centralWidget.setObjectName("myroot");
 const rootLayout = new FlexLayout();
 centralWidget.setLayout(rootLayout);
 
-var dataInfor = new QLineEdit();
-var dataInfo = "a";
-dataInfor.setText(dataInfo);
+var dataInfo;
 
 const labelImage = new QLabel();
 labelImage.setObjectName("imageLabel");
@@ -166,7 +164,9 @@ buttonPush.addEventListener("clicked", () => {
     commitMessage.setObjectName("commitMessageTextDark");
   }
 });
+var dataInfor = new QLineEdit();
 
+dataInfor.setText(dataInfo);
 const buttonSkin = new QCheckBox();
 var count = 1;
 buttonSkin.setText("Dark");
