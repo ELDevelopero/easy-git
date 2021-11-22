@@ -101,19 +101,19 @@ buttonCommit.addEventListener("clicked", () => {
     (error, stdout, stderr) => {
       if (error) {
         console.log(`error: ${error.message}`);
-        buttonCommit.setText("Commit ❌");
+        buttonCommit.setText("Git Commit ❌");
         buttonCommit.setObjectName("errorLabel");
         return;
       }
       if (stderr) {
         console.log(`stderr: ${stderr}`);
-        buttonCommit.setText("Commit ❌");
+        buttonCommit.setText("Git Commit ❌");
         buttonCommit.setObjectName("errorLabel");
 
         return;
       }
       console.log(`stdout: ${stdout}`);
-      buttonCommit.setText("Commit ✔️");
+      buttonCommit.setText("Git Commit ✔️");
       buttonCommit.setObjectName("passLabel");
     }
   );
