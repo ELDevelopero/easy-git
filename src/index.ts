@@ -25,7 +25,7 @@ const rootLayout = new FlexLayout();
 centralWidget.setLayout(rootLayout);
 
 var dataInfor = new QLineEdit();
-var dataInfo;
+var dataInfo = "a";
 dataInfor.setText(dataInfo);
 
 const labelImage = new QLabel();
@@ -138,8 +138,7 @@ buttonPush.addEventListener("clicked", () => {
     }
     if (stderr) {
       console.log(`stderr: ${stderr}`);
-
-      dataInfo.setText(stderr);
+      dataInfo = stderr;
 
       return;
     }
