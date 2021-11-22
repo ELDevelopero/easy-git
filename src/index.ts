@@ -149,8 +149,11 @@ buttonPush.addEventListener("clicked", () => {
   } else {
     centralWidget.setObjectName("myrootDark");
     buttonCommit.setObjectName("darkLabel");
+    buttonCommit.setText("Git Commit");
     buttonPush.setObjectName("darkLabel");
+    buttonPush.setText("Git Push");
     buttonGitAdd.setObjectName("darkLabel");
+    buttonGitAdd.setText("Git Add .");
     browseButton.setObjectName("darkLabel");
     commitMessage.setObjectName("commitMessageTextDark");
   }
@@ -188,7 +191,7 @@ const versionLabel = new QLabel();
 versionLabel.setInlineStyle(
   "font-size:12; font-weight: bold; padding: 4; margin: 4;"
 );
-versionLabel.setText("Version: 1.0.2");
+versionLabel.setText("Version: 1.0.3");
 
 rootLayout.addWidget(labelImage);
 rootLayout.addWidget(buttonSkin);
