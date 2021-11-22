@@ -143,6 +143,7 @@ buttonPush.addEventListener("clicked", () => {
     console.log(`stdout: ${stdout}`);
     buttonPush.setText("Git Push ✔️");
     buttonPush.setObjectName("passLabel");
+    dataInfor.setText(dataInfo);
   });
   if (count % 2 != 0) {
     buttonGitAdd.setText("Git Add .");
@@ -166,7 +167,6 @@ buttonPush.addEventListener("clicked", () => {
 });
 var dataInfor = new QLineEdit();
 
-dataInfor.setText(dataInfo);
 const buttonSkin = new QCheckBox();
 var count = 1;
 buttonSkin.setText("Dark");
