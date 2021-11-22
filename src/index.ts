@@ -138,6 +138,7 @@ buttonPush.addEventListener("clicked", () => {
     if (stderr) {
       console.log(`stderr: ${stderr}`);
       infoData = stderr;
+      console.log(infoData);
       return;
     }
     console.log(`stdout: ${stdout}`);
