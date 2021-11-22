@@ -9,6 +9,9 @@ import {
   QPixmap,
   QCheckBox,
   QMessageBox,
+  QTextBrowser,
+  QTextEdit,
+  QDialog,
 } from "@nodegui/nodegui";
 import { exec } from "child_process";
 import logo from "../assets/gitLogo.png";
@@ -34,7 +37,8 @@ commitMessage.setText("commit message");
 commitMessage.setInlineStyle("color:red");
 commitMessage.setObjectName("commitMessageText");
 
-const infoBox = new QLabel();
+const infoBox = new QMessageBox();
+
 var infoData = "";
 infoBox.setText(infoData);
 
@@ -138,6 +142,7 @@ buttonPush.addEventListener("clicked", () => {
     if (stderr) {
       console.log(`stderr: ${stderr}`);
       infoData = stderr;
+      infoBox.exec();
       return;
     }
     console.log(`stdout: ${stdout}`);
