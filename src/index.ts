@@ -170,6 +170,8 @@ buttonSkin.addEventListener("clicked", () => {
     buttonGitAdd.setObjectName("standardLabel");
     browseButton.setObjectName("standardLabel");
     commitMessage.setObjectName("commitMessageText");
+    buttonSkin.setInlineStyle("color:black");
+    versionLabel.setInlineStyle("color:black");
   } else {
     centralWidget.setObjectName("myrootDark");
     buttonCommit.setObjectName("darkLabel");
@@ -177,6 +179,8 @@ buttonSkin.addEventListener("clicked", () => {
     buttonGitAdd.setObjectName("darkLabel");
     browseButton.setObjectName("darkLabel");
     commitMessage.setObjectName("commitMessageTextDark");
+    buttonSkin.setInlineStyle("color: white");
+    versionLabel.setInlineStyle("color:white");
   }
 });
 
@@ -207,7 +211,7 @@ win.setStyleSheet(
     }
 
     #myrootDark{
-      background-color: grey;
+      background-color: #22223b;
       height: '100%';
       align-items: 'center';
       justify-content: 'center';
@@ -265,7 +269,7 @@ win.setStyleSheet(
       }
 
       #darkLabel{
-        background-color: #3C415C;
+        background-color: #4a4e69;
         padding:4;
         width: 135px;
         font-size: 20px;
