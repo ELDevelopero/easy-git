@@ -16,7 +16,6 @@ import logo from "../assets/gitLogo.png";
 const win = new QMainWindow();
 win.setWindowTitle("DMS Easy Git");
 var datas;
-var skin = true;
 
 const centralWidget = new QWidget();
 centralWidget.setObjectName("myroot");
