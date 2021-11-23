@@ -8,8 +8,7 @@ import {
   QLineEdit,
   QPixmap,
   QCheckBox,
-  QMessageBox,
-  QDialog,
+  QTextEdit,
 } from "@nodegui/nodegui";
 import { exec } from "child_process";
 import logo from "../assets/gitLogo.png";
@@ -132,6 +131,8 @@ buttonPush.addEventListener("clicked", () => {
       console.log(`error: ${error.message}`);
       buttonPush.setText("Git Push ❌");
       buttonPush.setObjectName("errorLabel");
+      dataInfo = stderr;
+      dataInfor.setText(stderr);
       return;
     }
     if (stderr) {
@@ -165,7 +166,7 @@ buttonPush.addEventListener("clicked", () => {
     commitMessage.setObjectName("commitMessageTextDark");
   }
 });
-var dataInfor = new QLineEdit();
+var dataInfor = new QTextEdit();
 
 const buttonSkin = new QCheckBox();
 var count = 1;
