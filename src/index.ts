@@ -193,6 +193,7 @@ buttonSkin.addEventListener("clicked", () => {
       "font-size:12; font-weight: bold; padding: 4; margin: 4; color:black"
     );
     dataInfor.setObjectName("terminalOutput");
+    logTextLabel.setObjectName("textLabel");
   } else {
     centralWidget.setObjectName("myrootDark");
     buttonCommit.setObjectName("darkLabel");
@@ -205,8 +206,13 @@ buttonSkin.addEventListener("clicked", () => {
       "font-size:12; font-weight: bold; padding: 4; margin: 4; color:white"
     );
     dataInfor.setObjectName("terminalOutputDark");
+    logTextLabel.setObjectName("textLabelDark");
   }
 });
+
+const logTextLabel = new QLabel();
+logTextLabel.setText("Console Output");
+logTextLabel.setObjectName("textLabel");
 
 const versionLabel = new QLabel();
 versionLabel.setInlineStyle(
@@ -222,6 +228,7 @@ rootLayout.addWidget(buttonGitAdd);
 rootLayout.addWidget(commitMessage);
 rootLayout.addWidget(buttonCommit);
 rootLayout.addWidget(buttonPush);
+rootLayout.addWidget(logTextLabel);
 rootLayout.addWidget(dataInfor);
 rootLayout.addWidget(versionLabel);
 win.setCentralWidget(centralWidget);
@@ -310,6 +317,23 @@ win.setStyleSheet(
         padding:4;
         width: 135px;
         font-size: 20px;
+        }
+
+        #textLabel{
+          font-size:12; 
+          font-weight: bold; 
+          padding: 4; 
+          margin: 4; 
+          color:black;
+        }
+
+        #textLabelDark{
+          font-size:12;
+           font-weight: bold;
+            padding: 4;
+             margin: 4; 
+             color:white;
+          
         }
 
 
