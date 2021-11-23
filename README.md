@@ -1,6 +1,6 @@
 # DMS-EASY-GIT
 
-## To Use
+## Usage
 
 To clone and run this repository you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer.
 
@@ -9,7 +9,7 @@ Make sure you have met the requirements listed here: https://docs.nodegui.org/do
 From your command line:
 
 ```bash
-# Clone this repository
+# Clone the repository
 git clone https://github.com/ELDevelopero/easy-git
 # Go into the repository
 cd easy-git
