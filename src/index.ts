@@ -23,8 +23,6 @@ centralWidget.setObjectName("myroot");
 const rootLayout = new FlexLayout();
 centralWidget.setLayout(rootLayout);
 
-var dataInfo;
-
 const labelImage = new QLabel();
 labelImage.setObjectName("imageLabel");
 const image = new QPixmap();
@@ -32,7 +30,7 @@ image.load(logo);
 labelImage.setPixmap(image);
 
 const commitMessage = new QLineEdit();
-commitMessage.setText("commit message");
+commitMessage.setPlaceholderText(`"commit message"`);
 commitMessage.setInlineStyle("color:red");
 commitMessage.setObjectName("commitMessageText");
 
@@ -58,17 +56,20 @@ browseButton.addEventListener("clicked", (e) => {
       console.log(`error: ${error.message}`);
       browseButton.setText("Browse ❌");
       browseButton.setObjectName("errorLabel");
+      dataInfor.setText(error.message);
       return;
     }
     if (stderr) {
       console.log(`stderr: ${stderr}`);
       browseButton.setText("Browse ❌");
       browseButton.setObjectName("errorLabel");
+      dataInfor.setText(stderr);
       return;
     }
     console.log(`stdout: ${stdout}`);
     browseButton.setText("Browse ✔️");
     browseButton.setObjectName("passLabel");
+    dataInfor.setText(stdout);
   });
 });
 
@@ -81,17 +82,20 @@ buttonGitAdd.addEventListener("clicked", (e) => {
       console.log(`error: ${error.message}`);
       buttonGitAdd.setText("Git Add ❌");
       buttonGitAdd.setObjectName("errorLabel");
+      dataInfor.setText(error.message);
       return;
     }
     if (stderr) {
       console.log(`stderr: ${stderr}`);
       buttonGitAdd.setText("Git Add ❌");
       buttonGitAdd.setObjectName("errorLabel");
+      dataInfor.setText(stderr);
       return;
     }
     console.log(`stdout: ${stdout}`);
     buttonGitAdd.setText("Git Add . ✔️");
     buttonGitAdd.setObjectName("passLabel");
+    dataInfor.setText(stdout);
   });
 });
 
@@ -106,18 +110,21 @@ buttonCommit.addEventListener("clicked", () => {
         console.log(`error: ${error.message}`);
         buttonCommit.setText("Git Commit ❌");
         buttonCommit.setObjectName("errorLabel");
+        dataInfor.setText(error.message);
         return;
       }
       if (stderr) {
         console.log(`stderr: ${stderr}`);
         buttonCommit.setText("Git Commit ❌");
         buttonCommit.setObjectName("errorLabel");
+        dataInfor.setText(stderr);
 
         return;
       }
       console.log(`stdout: ${stdout}`);
       buttonCommit.setText("Git Commit ✔️");
       buttonCommit.setObjectName("passLabel");
+      dataInfor.setText(stdout);
     }
   );
 });
@@ -131,20 +138,18 @@ buttonPush.addEventListener("clicked", () => {
       console.log(`error: ${error.message}`);
       buttonPush.setText("Git Push ❌");
       buttonPush.setObjectName("errorLabel");
-      dataInfo = stderr;
-      dataInfor.setText(stderr);
+      dataInfor.setText(error.message);
       return;
     }
     if (stderr) {
       console.log(`stderr: ${stderr}`);
-      dataInfo = stderr;
       dataInfor.setText(stderr);
-
       return;
     }
     console.log(`stdout: ${stdout}`);
     buttonPush.setText("Git Push ✔️");
     buttonPush.setObjectName("passLabel");
+    dataInfor.setText(stdout);
   });
   if (count % 2 != 0) {
     buttonGitAdd.setText("Git Add .");
@@ -167,6 +172,7 @@ buttonPush.addEventListener("clicked", () => {
   }
 });
 var dataInfor = new QTextEdit();
+dataInfor.setObjectName("terminalOutput");
 
 const buttonSkin = new QCheckBox();
 var count = 1;
@@ -186,6 +192,7 @@ buttonSkin.addEventListener("clicked", () => {
     versionLabel.setInlineStyle(
       "font-size:12; font-weight: bold; padding: 4; margin: 4; color:black"
     );
+    dataInfor.setObjectName("terminalOutput");
   } else {
     centralWidget.setObjectName("myrootDark");
     buttonCommit.setObjectName("darkLabel");
@@ -197,6 +204,7 @@ buttonSkin.addEventListener("clicked", () => {
     versionLabel.setInlineStyle(
       "font-size:12; font-weight: bold; padding: 4; margin: 4; color:white"
     );
+    dataInfor.setObjectName("terminalOutputDark");
   }
 });
 
@@ -249,9 +257,21 @@ win.setStyleSheet(
         padding:4;
         width:135px;
         height:50 px;
-        color:blue;
+        color:green;
         align-items: "center";
         font-size:14px;
+      }
+
+      #terminalOutput{
+        height: 100 px;
+        color: black;
+      }
+
+      #terminalOutputDark{
+        height:100px;
+        color:white;
+        background-color: #3C415C;
+
       }
 
       #commitMessageTextDark{
