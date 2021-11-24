@@ -143,6 +143,7 @@ buttonPush.addEventListener("clicked", () => {
     if (stderr) {
       console.log(`stderr: ${stderr}`);
       dataInfor.setText(stderr);
+      buttonPush.setText("Git Push ✔️");
       return;
     }
     console.log(`stdout: ${stdout}`);
@@ -255,17 +256,26 @@ win.setStyleSheet(
 
       #buttonsLabes{
         padding:4;
-        width: 135px;
+        width: 150px;
         font-size: 20px;
       }
 
       #commitMessageText{
         padding:4;
-        width:135px;
+        width:150px;
         height:50 px;
         color:green;
         align-items: "center";
-        font-size:14px;
+        font-size:12px;
+      }
+      #commitMessageTextDark{
+        padding:4;
+        width:150px;
+        height:50 px;
+        color:white;
+        align-items: "center";
+        font-size:12px;
+        background-color: #3C415C;
       }
 
       #terminalOutput{
@@ -274,47 +284,40 @@ win.setStyleSheet(
       }
 
       #terminalOutputDark{
+
         height:100px;
         color:white;
         background-color: #3C415C;
 
       }
 
-      #commitMessageTextDark{
-        padding:4;
-        width:135px;
-        height:50 px;
-        color:white;
-        align-items: "center";
-        font-size:14px;
-        background-color: #3C415C;
-      }
+      
 
       #errorLabel{
         background-color: "red";
         padding:4;
-        width: 135px;
+        width: 150px;
         font-size: 20px;
       }
 
       #passLabel{
       background-color: "green";
       padding:4;
-      width: 135px;
+      width: 150px;
       font-size: 20px;
       }
 
       #standardLabel{
       background-color: #F6F5F2;
       padding:4;
-      width: 135px;
+      width: 150px;
       font-size: 20px;
       }
 
       #darkLabel{
         background-color: #4a4e69;
         padding:4;
-        width: 135px;
+        width: 150px;
         font-size: 20px;
         }
 
