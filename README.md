@@ -9,7 +9,7 @@ Make sure you have met the requirements listed here: https://docs.nodegui.org/do
 From your command line:
 
 ```bash
-# Clone this repository
+# Clone the repository
 git clone https://github.com/ELDevelopero/easy-git
 # Go into the repository
 cd easy-git
