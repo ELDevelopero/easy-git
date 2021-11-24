@@ -77,6 +77,7 @@ buttonGitAdd.setText("Git Add .");
 buttonGitAdd.setObjectName("buttonsLabes");
 buttonGitAdd.addEventListener("clicked", (e) => {
   exec("cd " + datas + "&&" + " git add .", (error, stdout, stderr) => {
+    buttonPush.setText("Git Push");
     if (error) {
       console.log(`error: ${error.message}`);
       buttonGitAdd.setText("Git Add ❌");
