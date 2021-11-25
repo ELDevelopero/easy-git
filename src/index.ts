@@ -259,6 +259,7 @@ win.setStyleSheet(
         padding:4;
         width: 150px;
         font-size: 20px;
+        flex:1;
       }
 
       #commitMessageText{
